@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request a Proposal | Ormer Events, Jersey</title>
+<meta name="description" content="Tell us your dates, guest numbers and format. You'll have a costed proposal with three Jersey venue options within two working days.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark">OE</span>
+      <span>Ormer Events<span class="brand__sub">Corporate · Jersey</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation"><span></span></button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="venues.html">Venues</a>
+      <a href="entertainment.html">Entertainment</a>
+      <a href="food-and-drink.html">Food &amp; Drink</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+      <a class="btn btn--primary" href="#enquiry-form">Get a proposal</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="breadcrumb"><a href="index.html">Home</a> / Contact</p>
+      <span class="eyebrow">Two working days</span>
+      <h1>Tell us what you're planning</h1>
+      <p>Numbers, dates and the outcome you need. We'll come back with three venue options, a programme, menus and a costed budget.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="feature">
+        <div>
+          <h2>Enquiry form</h2>
+          <p class="lede" style="margin-bottom:28px">Nothing here is binding — it's the information we need to put real numbers in front of you.</p>
+
+          <form id="enquiry-form" novalidate>
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Your name *</label>
+                <input type="text" id="name" name="name" autocomplete="name" data-required>
+                <span class="error" role="alert"></span>
+              </div>
+              <div class="field">
+                <label for="company">Company *</label>
+                <input type="text" id="company" name="company" autocomplete="organization" data-required>
+                <span class="error" role="alert"></span>
+              </div>
+              <div class="field">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" autocomplete="email">
+                <span class="error" role="alert"></span>
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel">
+                <span class="error" role="alert"></span>
+              </div>
+              <div class="field">
+                <label for="format">Event format</label>
+                <select id="format" name="format">
+                  <option value="">Please choose…</option>
+                  <option>Residential conference</option>
+                  <option>Board or leadership offsite</option>
+                  <option>Awards or gala dinner</option>
+                  <option>Incentive trip</option>
+                  <option>Client hospitality day</option>
+                  <option>Summer or Christmas party</option>
+                  <option>Something else</option>
+                </select>
+                <span class="error" role="alert"></span>
+              </div>
+              <div class="field">
+                <label for="guests">Approximate guests</label>
+                <input type="number" id="guests" name="guests" min="1" max="5000" inputmode="numeric">
+                <span class="error" role="alert"></span>
+              </div>
+              <div class="field">
+                <label for="date">Preferred date or month</label>
+                <input type="text" id="date" name="date" placeholder="e.g. late June 2027">
+                <span class="error" role="alert"></span>
+              </div>
+              <div class="field">
+                <label for="budget">Budget band</label>
+                <select id="budget" name="budget">
+                  <option value="">Please choose…</option>
+                  <option>Under £10,000</option>
+                  <option>£10,000 – £25,000</option>
+                  <option>£25,000 – £60,000</option>
+                  <option>£60,000 – £150,000</option>
+                  <option>Over £150,000</option>
+                  <option>Not yet defined</option>
+                </select>
+                <span class="error" role="alert"></span>
+              </div>
+              <div class="field field--full">
+                <label for="message">What do you need from the event? *</label>
+                <textarea id="message" name="message" data-required placeholder="Delegate mix, must-haves, venues you've already considered, anything that went wrong last time…"></textarea>
+                <span class="error" role="alert"></span>
+              </div>
+            </div>
+
+            <p class="form-note" style="margin-top:18px">* Required. We'll only use these details to answer your enquiry.</p>
+            <button class="btn btn--primary" type="submit">Send enquiry</button>
+            <div class="form-status" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+
+        <div class="contact-panel">
+          <h3>Direct contact</h3>
+          <ul class="contact-list">
+            <li><strong>Email</strong><a href="mailto:events@ormerevents.je">events@ormerevents.je</a></li>
+            <li><strong>Phone</strong><a href="tel:+441534000000">+44 1534 000 000</a></li>
+            <li><strong>Office</strong>Liberation Square, St Helier, Jersey JE2</li>
+            <li><strong>Hours</strong>Monday – Friday, 08:30 – 18:00 (GMT/BST)</li>
+            <li><strong>Site visits</strong>We'll meet you at the airport and cover all ten venues in a single day</li>
+          </ul>
+
+          <hr style="border:0;border-top:1px solid rgba(22,33,43,.14);margin:26px 0">
+
+          <h3 style="font-size:1.05rem">Getting here</h3>
+          <p class="form-note">Jersey Airport is a 45-minute flight from London Gatwick and City, with direct routes from Manchester, Birmingham, Southampton, Dublin and Paris. Condor Ferries sail from Poole and Portsmouth. The airport is twelve minutes from St Helier.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--granite">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">What happens next</span>
+        <h2>After you hit send</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <h3>Same day</h3>
+          <p>We acknowledge the enquiry and flag anything that affects feasibility — dates, tides or island capacity.</p>
+        </div>
+        <div class="step reveal">
+          <h3>Day 1</h3>
+          <p>A 30-minute call to pin down numbers, the outcome you want and what the budget has to cover.</p>
+        </div>
+        <div class="step reveal">
+          <h3>Day 2</h3>
+          <p>Costed proposal: three venues with availability checked, a programme, menus and a line-by-line budget.</p>
+        </div>
+        <div class="step reveal">
+          <h3>Day 3 onward</h3>
+          <p>Site visit arranged, or straight to contracting if you already know the island.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html">
+          <span class="brand__mark">OE</span>
+          <span>Ormer Events<span class="brand__sub">Corporate · Jersey</span></span>
+        </a>
+        <p>Corporate event planning and on-island delivery across Jersey, Channel Islands.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="venues.html">Venues</a></li>
+          <li><a href="entertainment.html">Entertainment</a></li>
+          <li><a href="food-and-drink.html">Food &amp; Drink</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Formats</h4>
+        <ul>
+          <li>Conferences</li>
+          <li>Awards &amp; galas</li>
+          <li>Incentive trips</li>
+          <li>Client hospitality</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:events@ormerevents.je">events@ormerevents.je</a></li>
+          <li><a href="tel:+441534000000">+44 1534 000 000</a></li>
+          <li>St Helier, Jersey, JE2</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Ormer Events. Demonstration brochure site.</span>
+      <span>The form is front-end only until a handler is connected.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
