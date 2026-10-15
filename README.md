@@ -7,12 +7,29 @@ A static, dependency-free brochure website for a corporate events business in Je
 | Page | Purpose |
 | --- | --- |
 | `index.html` | Home — positioning, the three building blocks, process, event formats and budget bands, testimonials |
-| `venues.html` | **10 venues** with capacities, specs and a working capacity/type filter |
+| `venues.html` | **10 venues** — multi-facet filter (search, minimum capacity, type, parish, ten facilities), sort, and a card/comparison-table view switch |
+| `venue-<slug>.html` | **One detail page per venue** (10 pages) — capacities by layout, facilities and logistics table, best for, things to watch, indicative hire, lead time, similar venues |
 | `entertainment.html` | **5 entertainment programmes** plus a combined-programme option and the weather-contingency section |
 | `food-and-drink.html` | **5 food & drink concepts** plus day catering, a catering timeline and an FAQ |
 | `contact.html` | Enquiry form with client-side validation, direct contact details, next-steps timeline |
 
-Assets: `assets/css/styles.css`, `assets/js/main.js`. No build step, no frameworks, no external images — artwork is CSS gradients, so it works offline.
+Assets: `assets/css/styles.css`, `assets/js/main.js`, `assets/img/` (22 photographs). No framework and no build step for deployment — the HTML is committed and served as-is.
+
+## Regenerating the venue pages
+
+Venue content is data, not hand-written HTML. Edit `tools/venues_data.json` and re-run:
+
+```bash
+python3 tools/build_venues.py     # rewrites venues.html and all 10 venue-*.html pages
+python3 tools/fetch_images.py     # re-downloads imagery listed in its MANIFEST
+python3 tools/build_credits.py    # rebuilds credits.html from tools/credits.json
+```
+
+Each venue record carries: parish, locality, type, capacities by layout, ten facility flags used by the filters, a facilities/logistics table, "best for", "things to watch", indicative hire and lead time. Add a venue to the JSON and it appears in the index, the filters, the comparison table and its own page.
+
+### Filter behaviour
+
+Checkboxes are OR within a group and AND across groups, minimum capacity compares against each venue's largest layout, and the search box matches name, parish, type and locality. The card grid and the comparison table are filtered and sorted by the same engine.
 
 ## The ten venues
 
