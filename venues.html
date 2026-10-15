@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>10 Corporate Event Venues in Jersey | Ormer Events</title>
-<meta name="description" content="Ten corporate event venues across Jersey — waterfront ballrooms, two castles, a Victorian theatre, wartime tunnels, a showground and a manor estate. Capacities from 20 to 1,000.">
+<meta name="description" content="Filter ten Jersey corporate event venues by capacity, parish, type and facilities, then open a full detail page for each.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
   <div class="container site-header__inner">
     <a class="brand" href="index.html">
       <span class="brand__mark">OE</span>
-      <span>Ormer Events<span class="brand__sub">Corporate · Jersey</span></span>
+      <span>Ormer Events<span class="brand__sub">Corporate &middot; Jersey</span></span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation"><span></span></button>
     <nav class="nav" id="primary-nav" aria-label="Primary">
@@ -37,214 +37,383 @@
       <p class="breadcrumb"><a href="index.html">Home</a> / Venues</p>
       <span class="eyebrow">Ten venues</span>
       <h1>Every kind of room this island has</h1>
-      <p>From a 500-cover waterfront ballroom to a drinks reception on a castle rampart with the tide coming in. Capacities are maximums for the stated layout and confirmed at proposal stage.</p>
+      <p>Filter by capacity, parish, type and the facilities that actually decide a booking. Every venue has a full detail page with layout capacities, catering, AV, access, licensing and the things to watch.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
 
-      <div class="filters" role="group" aria-label="Filter venues">
-        <span class="filters__label">Filter</span>
-        <button class="chip" type="button" data-filter="all" aria-pressed="true">All ten</button>
-        <button class="chip" type="button" data-filter="hotel" aria-pressed="false">Hotels &amp; ballrooms</button>
-        <button class="chip" type="button" data-filter="heritage" aria-pressed="false">Heritage</button>
-        <button class="chip" type="button" data-filter="unique" aria-pressed="false">Unique spaces</button>
-        <button class="chip" type="button" data-filter="large" aria-pressed="false">300+ guests</button>
-        <button class="chip" type="button" data-filter="outdoor" aria-pressed="false">Outdoor space</button>
+      <div class="filter-panel" id="venue-filters">
+        <div class="filter-panel__head">
+          <h2>Filter venues</h2>
+          <p class="form-note" id="result-count" role="status" aria-live="polite">Showing all 10 venues</p>
+        </div>
+
+        <div class="filter-panel__grid">
+          <div class="field">
+            <label for="venue-search">Search</label>
+            <input type="search" id="venue-search" placeholder="Name, parish or keyword">
+          </div>
+
+          <div class="field">
+            <label for="venue-capacity">Must hold at least</label>
+            <select id="venue-capacity">
+              <option value="0">Any number of guests</option>
+              <option value="100">100 guests</option>
+              <option value="150">150 guests</option>
+              <option value="250">250 guests</option>
+              <option value="500">500 guests</option>
+              <option value="1000">1,000 guests</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="venue-sort">Sort by</label>
+            <select id="venue-sort">
+              <option value="capacity-desc">Capacity, largest first</option>
+              <option value="capacity-asc">Capacity, smallest first</option>
+              <option value="name">Name, A to Z</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="filter-panel__facets">
+          <fieldset>
+            <legend>Venue type</legend>
+          <label class="check"><input type="checkbox" data-facet="type" value="Heritage"> Heritage</label>
+          <label class="check"><input type="checkbox" data-facet="type" value="Hotel & ballroom"> Hotel & ballroom</label>
+          <label class="check"><input type="checkbox" data-facet="type" value="Manor & gardens"> Manor & gardens</label>
+          <label class="check"><input type="checkbox" data-facet="type" value="Outdoor & blank canvas"> Outdoor & blank canvas</label>
+          <label class="check"><input type="checkbox" data-facet="type" value="Theatre & stage"> Theatre & stage</label>
+          <label class="check"><input type="checkbox" data-facet="type" value="Unique space"> Unique space</label>
+          </fieldset>
+          <fieldset>
+            <legend>Parish</legend>
+          <label class="check"><input type="checkbox" data-facet="parish" value="St Brelade"> St Brelade</label>
+          <label class="check"><input type="checkbox" data-facet="parish" value="St Clement"> St Clement</label>
+          <label class="check"><input type="checkbox" data-facet="parish" value="St Helier"> St Helier</label>
+          <label class="check"><input type="checkbox" data-facet="parish" value="St Lawrence"> St Lawrence</label>
+          <label class="check"><input type="checkbox" data-facet="parish" value="St Martin"> St Martin</label>
+          <label class="check"><input type="checkbox" data-facet="parish" value="Trinity"> Trinity</label>
+          </fieldset>
+          <fieldset>
+            <legend>Facilities</legend>
+          <label class="check"><input type="checkbox" data-facet="features" value="bedrooms"> Bedrooms on site</label>
+          <label class="check"><input type="checkbox" data-facet="features" value="inhouse-catering"> In-house catering</label>
+          <label class="check"><input type="checkbox" data-facet="features" value="inhouse-av"> In-house AV</label>
+          <label class="check"><input type="checkbox" data-facet="features" value="step-free"> Step-free access</label>
+          <label class="check"><input type="checkbox" data-facet="features" value="year-round"> Year round</label>
+          <label class="check"><input type="checkbox" data-facet="features" value="parking"> On-site parking</label>
+          <label class="check"><input type="checkbox" data-facet="features" value="outdoor"> Outdoor space</label>
+          <label class="check"><input type="checkbox" data-facet="features" value="exclusive"> Exclusive use</label>
+          <label class="check"><input type="checkbox" data-facet="features" value="stage"> Full stage</label>
+          <label class="check"><input type="checkbox" data-facet="features" value="exhibition"> Exhibition capable</label>
+          </fieldset>
+        </div>
+
+        <div class="filter-panel__foot">
+          <button class="btn btn--outline" type="button" id="filter-reset">Clear all filters</button>
+          <button class="btn btn--dark" type="button" id="view-toggle" aria-pressed="false">Switch to comparison table</button>
+        </div>
       </div>
 
-      <div class="grid grid--3">
-
-        <article class="card reveal" data-tags="hotel large">
-          <div class="card__media m1"><span class="card__badge">St Helier</span><img src="assets/img/venue-royal-yacht.jpg" alt="The Royal Yacht hotel on the harbour front at the Weighbridge, St Helier" loading="lazy"></div>
+      <div id="venue-cards" class="grid grid--3">
+        <article class="card" data-filterable data-name="The Royal Yacht St Helier Hotel & ballroom Weighbridge, St Helier" data-type="Hotel & ballroom" data-parish="St Helier" data-max="400" data-features="bedrooms inhouse-catering inhouse-av step-free year-round waterfront licensed town-centre">
+          <div class="card__media m1">
+            <span class="card__badge">St Helier</span>
+            <img src="assets/img/venue-royal-yacht.jpg" alt="The Royal Yacht, Jersey" loading="lazy">
+          </div>
           <div class="card__body">
-            <h3>The Royal Yacht</h3>
-            <div class="card__meta">Up to 300 · Waterfront hotel</div>
-            <p>Harbour-front four-star on the Weighbridge, a two-minute walk from the business district. Strong choice for conferences that need delegates sleeping, meeting and dining in one building.</p>
+            <h3><a href="venue-royal-yacht.html">The Royal Yacht</a></h3>
+            <div class="card__meta">Up to 400 reception · 300 banquet</div>
+            <p>Harbour-front four-star where delegates sleep, meet and dine in one building.</p>
+            <div class="tag-row"><span class="tag">Bedrooms on site</span><span class="tag">In-house catering</span><span class="tag">In-house AV</span><span class="tag">Step-free access</span><span class="tag">Year round</span></div>
             <ul class="card__specs">
-              <li>Banqueting to 300; theatre to 250</li>
-              <li>110 bedrooms plus spa on site</li>
-              <li>Six breakout rooms and a private dining room</li>
-              <li>Walking distance to the harbour and shops</li>
+              <li>Reception &middot; 400</li>
+              <li>Banquet &middot; 300</li>
+              <li>Theatre &middot; 250</li>
             </ul>
+            <p style="margin:18px 0 0"><a href="venue-royal-yacht.html">Full venue details &rarr;</a></p>
           </div>
         </article>
-
-        <article class="card reveal" data-tags="hotel large">
-          <div class="card__media m2"><span class="card__badge">St Helier</span><img src="assets/img/venue-radisson.jpg" alt="The Radisson Blu Waterfront Hotel on the St Helier waterfront" loading="lazy"></div>
+        <article class="card" data-filterable data-name="Radisson Blu Waterfront Hotel St Helier Hotel & ballroom Waterfront, St Helier" data-type="Hotel & ballroom" data-parish="St Helier" data-max="700" data-features="bedrooms inhouse-catering inhouse-av step-free year-round parking waterfront licensed exhibition divisible">
+          <div class="card__media m2">
+            <span class="card__badge">St Helier</span>
+            <img src="assets/img/venue-radisson.jpg" alt="Radisson Blu Waterfront Hotel, Jersey" loading="lazy">
+          </div>
           <div class="card__body">
-            <h3>Radisson Blu Waterfront Hotel</h3>
-            <div class="card__meta">Up to 500 · Largest ballroom</div>
-            <p>The island's biggest single conference and banqueting space, purpose-built with pillar-free floor, loading access and full in-house AV. The default for large awards nights and multi-day conferences.</p>
+            <h3><a href="venue-radisson-blu.html">Radisson Blu Waterfront Hotel</a></h3>
+            <div class="card__meta">Up to 700 reception · 500 banquet</div>
+            <p>The island's largest pillar-free ballroom, purpose-built for conferences.</p>
+            <div class="tag-row"><span class="tag">Bedrooms on site</span><span class="tag">In-house catering</span><span class="tag">In-house AV</span><span class="tag">Step-free access</span><span class="tag">Year round</span><span class="tag">On-site parking</span><span class="tag">Exhibition capable</span></div>
             <ul class="card__specs">
-              <li>Pillar-free ballroom, banqueting to 500</li>
-              <li>Divisible into three separate suites</li>
-              <li>195 bedrooms; marina and beach views</li>
-              <li>Exhibition-capable with vehicle access</li>
+              <li>Reception &middot; 700</li>
+              <li>Banquet &middot; 500</li>
+              <li>Theatre &middot; 550</li>
             </ul>
+            <p style="margin:18px 0 0"><a href="venue-radisson-blu.html">Full venue details &rarr;</a></p>
           </div>
         </article>
-
-        <article class="card reveal" data-tags="hotel outdoor">
-          <div class="card__media m9"><span class="card__badge">St Brelade</span><img src="assets/img/venue-lhorizon.jpg" alt="St Brelade's Bay, Jersey, where L'Horizon Beach Hotel sits directly on the sand" loading="lazy"></div>
+        <article class="card" data-filterable data-name="L'Horizon Beach Hotel & Spa St Brelade Hotel & ballroom St Brelade's Bay" data-type="Hotel & ballroom" data-parish="St Brelade" data-max="250" data-features="bedrooms inhouse-catering step-free year-round parking outdoor waterfront licensed spa">
+          <div class="card__media m9">
+            <span class="card__badge">St Brelade</span>
+            <img src="assets/img/venue-lhorizon.jpg" alt="L'Horizon Beach Hotel & Spa, Jersey" loading="lazy">
+          </div>
           <div class="card__body">
-            <h3>L'Horizon Beach Hotel &amp; Spa</h3>
-            <div class="card__meta">Up to 200 · Beachfront</div>
-            <p>Directly on St Brelade's Bay with the sand at the door. The island's best option for incentive groups and leadership offsites that want sea air between sessions.</p>
+            <h3><a href="venue-lhorizon.html">L'Horizon Beach Hotel & Spa</a></h3>
+            <div class="card__meta">Up to 250 reception · 200 banquet</div>
+            <p>Sand at the door — the island's best incentive and offsite base.</p>
+            <div class="tag-row"><span class="tag">Bedrooms on site</span><span class="tag">In-house catering</span><span class="tag">Step-free access</span><span class="tag">Year round</span><span class="tag">On-site parking</span><span class="tag">Outdoor space</span></div>
             <ul class="card__specs">
-              <li>Banqueting to 200; boardroom from 10</li>
-              <li>Beach-access terrace for receptions</li>
-              <li>Spa, pool and two restaurants</li>
-              <li>Fifteen minutes from the airport</li>
+              <li>Reception &middot; 250</li>
+              <li>Banquet &middot; 200</li>
+              <li>Theatre &middot; 180</li>
             </ul>
+            <p style="margin:18px 0 0"><a href="venue-lhorizon.html">Full venue details &rarr;</a></p>
           </div>
         </article>
-
-        <article class="card reveal" data-tags="hotel">
-          <div class="card__media m6"><span class="card__badge">St Helier</span><img src="assets/img/venue-grand-jersey.jpg" alt="The Grand Jersey Hotel and Spa on the seafront at St Helier" loading="lazy"></div>
+        <article class="card" data-filterable data-name="Grand Jersey Hotel & Spa St Helier Hotel & ballroom Victoria Avenue, St Helier" data-type="Hotel & ballroom" data-parish="St Helier" data-max="200" data-features="bedrooms inhouse-catering step-free year-round parking waterfront licensed spa">
+          <div class="card__media m6">
+            <span class="card__badge">St Helier</span>
+            <img src="assets/img/venue-grand-jersey.jpg" alt="Grand Jersey Hotel & Spa, Jersey" loading="lazy">
+          </div>
           <div class="card__body">
-            <h3>Grand Jersey Hotel &amp; Spa</h3>
-            <div class="card__meta">Up to 150 · Boutique five-star</div>
-            <p>Victorian seafront building with a modern interior and a Champagne lounge. Suits senior client hospitality and smaller gala dinners where the room needs to feel considered.</p>
+            <h3><a href="venue-grand-jersey.html">Grand Jersey Hotel & Spa</a></h3>
+            <div class="card__meta">Up to 200 reception · 150 banquet</div>
+            <p>Boutique five-star for senior hospitality and smaller gala dinners.</p>
+            <div class="tag-row"><span class="tag">Bedrooms on site</span><span class="tag">In-house catering</span><span class="tag">Step-free access</span><span class="tag">Year round</span><span class="tag">On-site parking</span></div>
             <ul class="card__specs">
-              <li>Banqueting to 150; private dining to 24</li>
-              <li>Champagne lounge for pre-dinner drinks</li>
-              <li>123 bedrooms and a destination spa</li>
-              <li>Seafront position on Victoria Avenue</li>
+              <li>Reception &middot; 200</li>
+              <li>Banquet &middot; 150</li>
+              <li>Theatre &middot; 120</li>
             </ul>
+            <p style="margin:18px 0 0"><a href="venue-grand-jersey.html">Full venue details &rarr;</a></p>
           </div>
         </article>
-
-        <article class="card reveal" data-tags="unique large">
-          <div class="card__media m3"><span class="card__badge">St Helier</span><img src="assets/img/venue-opera-house.jpg" alt="The restored Victorian frontage of Jersey Opera House in St Helier" loading="lazy"></div>
+        <article class="card" data-filterable data-name="Jersey Opera House St Helier Theatre & stage Gloucester Street, St Helier" data-type="Theatre & stage" data-parish="St Helier" data-max="600" data-features="inhouse-av step-free year-round licensed town-centre stage">
+          <div class="card__media m3">
+            <span class="card__badge">St Helier</span>
+            <img src="assets/img/venue-opera-house.jpg" alt="Jersey Opera House, Jersey" loading="lazy">
+          </div>
           <div class="card__body">
-            <h3>Jersey Opera House</h3>
-            <div class="card__meta">Up to 600 theatre · Town centre</div>
-            <p>Restored Victorian theatre in the middle of town. Hire it for conference plenaries, AGMs, product launches and award ceremonies that want a proper stage and tiered seating.</p>
+            <h3><a href="venue-opera-house.html">Jersey Opera House</a></h3>
+            <div class="card__meta">Up to 600 theatre-style</div>
+            <p>A restored Victorian theatre for plenaries, AGMs and ceremonies.</p>
+            <div class="tag-row"><span class="tag">In-house AV</span><span class="tag">Step-free access</span><span class="tag">Year round</span><span class="tag">Full stage</span></div>
             <ul class="card__specs">
-              <li>Tiered auditorium seating to 600</li>
-              <li>Full theatrical lighting, sound and fly tower</li>
-              <li>Bars and foyer spaces for receptions</li>
-              <li>Green rooms for speakers and talent</li>
+              <li>Theatre (tiered) &middot; 600</li>
+              <li>Reception (foyer and bars) &middot; 250</li>
+              <li>Stage presentation &middot; Full fly tower</li>
             </ul>
+            <p style="margin:18px 0 0"><a href="venue-opera-house.html">Full venue details &rarr;</a></p>
           </div>
         </article>
-
-        <article class="card reveal" data-tags="heritage unique outdoor">
-          <div class="card__media m8"><span class="card__badge">Gorey</span><img src="assets/img/venue-mont-orgueil.jpg" alt="Mont Orgueil Castle above Gorey harbour, Jersey" loading="lazy"></div>
+        <article class="card" data-filterable data-name="Mont Orgueil Castle St Martin Heritage Gorey harbour" data-type="Heritage" data-parish="St Martin" data-max="120" data-features="exclusive outdoor heritage-site seasonal waterfront">
+          <div class="card__media m8">
+            <span class="card__badge">St Martin</span>
+            <img src="assets/img/venue-mont-orgueil.jpg" alt="Mont Orgueil Castle, Jersey" loading="lazy">
+          </div>
           <div class="card__body">
-            <h3>Mont Orgueil Castle</h3>
-            <div class="card__meta">Up to 120 reception · 13th century</div>
-            <p>A medieval fortress above Gorey harbour, lit at night and visible from the French coast. Used for drinks receptions and seated dinners in the Great Hall after public closing.</p>
+            <h3><a href="venue-mont-orgueil.html">Mont Orgueil Castle</a></h3>
+            <div class="card__meta">Up to 120 reception · 80 seated</div>
+            <p>A medieval fortress above Gorey, lit at night and visible from France.</p>
+            <div class="tag-row"><span class="tag">Exclusive use</span><span class="tag">Outdoor space</span></div>
             <ul class="card__specs">
-              <li>Reception to 120; seated dinner to 80</li>
-              <li>Exclusive use from 6pm, April to October</li>
-              <li>Ramparts with views to Normandy</li>
-              <li>Caterers brought in on a mobile kitchen</li>
+              <li>Reception &middot; 120</li>
+              <li>Seated dinner (Great Hall) &middot; 80</li>
+              <li>Rampart drinks &middot; 100</li>
             </ul>
+            <p style="margin:18px 0 0"><a href="venue-mont-orgueil.html">Full venue details &rarr;</a></p>
           </div>
         </article>
-
-        <article class="card reveal" data-tags="heritage unique outdoor large">
-          <div class="card__media m7"><span class="card__badge">St Aubin's Bay</span><img src="assets/img/venue-elizabeth-castle.jpg" alt="Elizabeth Castle on its tidal island off St Helier, Jersey" loading="lazy"></div>
+        <article class="card" data-filterable data-name="Elizabeth Castle St Helier Heritage St Aubin's Bay, tidal island" data-type="Heritage" data-parish="St Helier" data-max="250" data-features="exclusive outdoor heritage-site seasonal waterfront marquee">
+          <div class="card__media m7">
+            <span class="card__badge">St Helier</span>
+            <img src="assets/img/venue-elizabeth-castle.jpg" alt="Elizabeth Castle, Jersey" loading="lazy">
+          </div>
           <div class="card__body">
-            <h3>Elizabeth Castle</h3>
-            <div class="card__meta">Up to 250 · Tidal island fortress</div>
-            <p>A sixteenth-century castle on its own tidal island, reached by amphibious ferry or on foot across the causeway. The arrival is the entertainment; guests talk about it for years.</p>
+            <h3><a href="venue-elizabeth-castle.html">Elizabeth Castle</a></h3>
+            <div class="card__meta">Up to 250 reception · 180 marquee dinner</div>
+            <p>A castle on its own tidal island, reached by causeway or amphibious ferry.</p>
+            <div class="tag-row"><span class="tag">Exclusive use</span><span class="tag">Outdoor space</span></div>
             <ul class="card__specs">
-              <li>Reception to 250; marquee dinner to 180</li>
-              <li>Causeway or castle-ferry arrival by tide time</li>
-              <li>Parade ground for marquees and staging</li>
-              <li>Tide-dependent timings; we build the schedule</li>
+              <li>Reception &middot; 250</li>
+              <li>Marquee dinner &middot; 180</li>
+              <li>Seated dinner (indoor rooms) &middot; 90</li>
             </ul>
+            <p style="margin:18px 0 0"><a href="venue-elizabeth-castle.html">Full venue details &rarr;</a></p>
           </div>
         </article>
-
-        <article class="card reveal" data-tags="heritage unique">
-          <div class="card__media m5"><span class="card__badge">St Lawrence</span><img src="assets/img/venue-war-tunnels.jpg" alt="A vaulted tunnel inside the Jersey War Tunnels at St Lawrence" loading="lazy"></div>
+        <article class="card" data-filterable data-name="Jersey War Tunnels St Lawrence Unique space Les Charrières Malorey, St Lawrence" data-type="Unique space" data-parish="St Lawrence" data-max="150" data-features="exclusive step-free year-round parking heritage-site weatherproof">
+          <div class="card__media m5">
+            <span class="card__badge">St Lawrence</span>
+            <img src="assets/img/venue-war-tunnels.jpg" alt="Jersey War Tunnels, Jersey" loading="lazy">
+          </div>
           <div class="card__body">
-            <h3>Jersey War Tunnels</h3>
-            <div class="card__meta">Up to 150 · Underground</div>
-            <p>A kilometre of hand-dug wartime tunnels cut into the hillside. A genuinely singular space for evening receptions, team days with a guided element, and screenings.</p>
+            <h3><a href="venue-war-tunnels.html">Jersey War Tunnels</a></h3>
+            <div class="card__meta">Up to 150 reception · 90 seated</div>
+            <p>A kilometre of wartime tunnels at a constant 16°C, whatever the weather.</p>
+            <div class="tag-row"><span class="tag">Exclusive use</span><span class="tag">Step-free access</span><span class="tag">Year round</span><span class="tag">On-site parking</span></div>
             <ul class="card__specs">
-              <li>Reception to 150; seated dinner to 90</li>
-              <li>Constant 16°C — weather-proof year round</li>
-              <li>Guided historical experience as a programme element</li>
-              <li>Projection-friendly tunnel galleries</li>
+              <li>Reception &middot; 150</li>
+              <li>Seated dinner &middot; 90</li>
+              <li>Theatre &middot; 100</li>
             </ul>
+            <p style="margin:18px 0 0"><a href="venue-war-tunnels.html">Full venue details &rarr;</a></p>
           </div>
         </article>
-
-        <article class="card reveal" data-tags="outdoor large">
-          <div class="card__media m4"><span class="card__badge">Trinity</span><img src="assets/img/venue-showground.jpg" alt="A large outdoor event in progress at the Royal Jersey Showground, Trinity" loading="lazy"></div>
+        <article class="card" data-filterable data-name="Royal Jersey Showground Trinity Outdoor & blank canvas La Route de la Trinité, Trinity" data-type="Outdoor & blank canvas" data-parish="Trinity" data-max="1500" data-features="outdoor parking marquee exhibition seasonal step-free">
+          <div class="card__media m4">
+            <span class="card__badge">Trinity</span>
+            <img src="assets/img/venue-showground.jpg" alt="Royal Jersey Showground, Jersey" loading="lazy">
+          </div>
           <div class="card__body">
-            <h3>Royal Jersey Showground</h3>
-            <div class="card__meta">Up to 1,000 · Blank canvas</div>
-            <p>Open ground and exhibition halls in the north of the island. Where a Jersey event genuinely needs scale — company family days, summer festivals, exhibitions and marquee conferences.</p>
+            <h3><a href="venue-showground.html">Royal Jersey Showground</a></h3>
+            <div class="card__meta">Up to 1,500 reception · 1,000 seated under marquee</div>
+            <p>Open ground and halls for the events that genuinely need scale.</p>
+            <div class="tag-row"><span class="tag">Outdoor space</span><span class="tag">On-site parking</span><span class="tag">Exhibition capable</span><span class="tag">Step-free access</span></div>
             <ul class="card__specs">
-              <li>Marquee capacity to 1,000 seated</li>
-              <li>Indoor halls plus large hard-standing</li>
-              <li>Power, water and on-site parking for 500 cars</li>
-              <li>Full build from an empty field</li>
+              <li>Reception / festival &middot; 1,500</li>
+              <li>Marquee banquet &middot; 1,000</li>
+              <li>Theatre (marquee) &middot; 900</li>
             </ul>
+            <p style="margin:18px 0 0"><a href="venue-showground.html">Full venue details &rarr;</a></p>
           </div>
         </article>
-
-        <article class="card reveal" data-tags="heritage outdoor">
-          <div class="card__media m10"><span class="card__badge">St Clement</span><img src="assets/img/venue-samares.jpg" alt="The gardens at Samarès Manor, St Clement, Jersey" loading="lazy"></div>
+        <article class="card" data-filterable data-name="Samarès Manor St Clement Manor & gardens Inner Road, St Clement" data-type="Manor & gardens" data-parish="St Clement" data-max="180" data-features="outdoor parking heritage-site seasonal marquee">
+          <div class="card__media m10">
+            <span class="card__badge">St Clement</span>
+            <img src="assets/img/venue-samares.jpg" alt="Samarès Manor, Jersey" loading="lazy">
+          </div>
           <div class="card__body">
-            <h3>Samarès Manor</h3>
-            <div class="card__meta">Up to 180 · Manor &amp; gardens</div>
-            <p>A historic manor with botanical gardens, a walled herb garden and a Norman crypt chapel. Daytime summer hospitality, garden receptions and relaxed team days.</p>
+            <h3><a href="venue-samares-manor.html">Samarès Manor</a></h3>
+            <div class="card__meta">Up to 180 garden reception · 140 marquee dinner</div>
+            <p>Botanical gardens and a walled herb garden five minutes from town.</p>
+            <div class="tag-row"><span class="tag">Outdoor space</span><span class="tag">On-site parking</span></div>
             <ul class="card__specs">
-              <li>Garden reception to 180; marquee dinner to 140</li>
-              <li>Walled gardens and lakeside lawn</li>
-              <li>Herb garden tours and tastings on site</li>
-              <li>Five minutes from St Helier</li>
+              <li>Garden reception &middot; 180</li>
+              <li>Marquee dinner &middot; 140</li>
+              <li>Long-table lunch &middot; 90</li>
             </ul>
+            <p style="margin:18px 0 0"><a href="venue-samares-manor.html">Full venue details &rarr;</a></p>
           </div>
         </article>
-
       </div>
 
-      <p class="filter-empty">No venues match that filter — try "All ten".</p>
+      <div id="venue-table" class="table-wrap" hidden>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Venue</th><th scope="col">Parish</th><th scope="col">Type</th>
+              <th scope="col">Reception</th><th scope="col">Banquet</th><th scope="col">Theatre</th><th scope="col">Bedrooms</th>
+            </tr>
+          </thead>
+          <tbody id="venue-rows">
+            <tr data-filterable data-name="The Royal Yacht St Helier Hotel & ballroom" data-type="Hotel & ballroom" data-parish="St Helier" data-max="400" data-features="bedrooms inhouse-catering inhouse-av step-free year-round waterfront licensed town-centre">
+              <td><strong><a href="venue-royal-yacht.html">The Royal Yacht</a></strong></td>
+              <td>St Helier</td>
+              <td>Hotel & ballroom</td>
+              <td>400</td>
+              <td>300</td>
+              <td>250</td>
+              <td>110</td>
+            </tr>
+            <tr data-filterable data-name="Radisson Blu Waterfront Hotel St Helier Hotel & ballroom" data-type="Hotel & ballroom" data-parish="St Helier" data-max="700" data-features="bedrooms inhouse-catering inhouse-av step-free year-round parking waterfront licensed exhibition divisible">
+              <td><strong><a href="venue-radisson-blu.html">Radisson Blu Waterfront Hotel</a></strong></td>
+              <td>St Helier</td>
+              <td>Hotel & ballroom</td>
+              <td>700</td>
+              <td>500</td>
+              <td>550</td>
+              <td>195</td>
+            </tr>
+            <tr data-filterable data-name="L'Horizon Beach Hotel & Spa St Brelade Hotel & ballroom" data-type="Hotel & ballroom" data-parish="St Brelade" data-max="250" data-features="bedrooms inhouse-catering step-free year-round parking outdoor waterfront licensed spa">
+              <td><strong><a href="venue-lhorizon.html">L'Horizon Beach Hotel & Spa</a></strong></td>
+              <td>St Brelade</td>
+              <td>Hotel & ballroom</td>
+              <td>250</td>
+              <td>200</td>
+              <td>180</td>
+              <td>106</td>
+            </tr>
+            <tr data-filterable data-name="Grand Jersey Hotel & Spa St Helier Hotel & ballroom" data-type="Hotel & ballroom" data-parish="St Helier" data-max="200" data-features="bedrooms inhouse-catering step-free year-round parking waterfront licensed spa">
+              <td><strong><a href="venue-grand-jersey.html">Grand Jersey Hotel & Spa</a></strong></td>
+              <td>St Helier</td>
+              <td>Hotel & ballroom</td>
+              <td>200</td>
+              <td>150</td>
+              <td>120</td>
+              <td>123</td>
+            </tr>
+            <tr data-filterable data-name="Jersey Opera House St Helier Theatre & stage" data-type="Theatre & stage" data-parish="St Helier" data-max="600" data-features="inhouse-av step-free year-round licensed town-centre stage">
+              <td><strong><a href="venue-opera-house.html">Jersey Opera House</a></strong></td>
+              <td>St Helier</td>
+              <td>Theatre & stage</td>
+              <td>250</td>
+              <td>Not available</td>
+              <td>600</td>
+              <td>None — St Helier hotels within walking distance</td>
+            </tr>
+            <tr data-filterable data-name="Mont Orgueil Castle St Martin Heritage" data-type="Heritage" data-parish="St Martin" data-max="120" data-features="exclusive outdoor heritage-site seasonal waterfront">
+              <td><strong><a href="venue-mont-orgueil.html">Mont Orgueil Castle</a></strong></td>
+              <td>St Martin</td>
+              <td>Heritage</td>
+              <td>120</td>
+              <td>—</td>
+              <td>60</td>
+              <td>None — Gorey and St Helier hotels nearby</td>
+            </tr>
+            <tr data-filterable data-name="Elizabeth Castle St Helier Heritage" data-type="Heritage" data-parish="St Helier" data-max="250" data-features="exclusive outdoor heritage-site seasonal waterfront marquee">
+              <td><strong><a href="venue-elizabeth-castle.html">Elizabeth Castle</a></strong></td>
+              <td>St Helier</td>
+              <td>Heritage</td>
+              <td>250</td>
+              <td>180</td>
+              <td>120</td>
+              <td>None — St Helier hotels five minutes from the slipway</td>
+            </tr>
+            <tr data-filterable data-name="Jersey War Tunnels St Lawrence Unique space" data-type="Unique space" data-parish="St Lawrence" data-max="150" data-features="exclusive step-free year-round parking heritage-site weatherproof">
+              <td><strong><a href="venue-war-tunnels.html">Jersey War Tunnels</a></strong></td>
+              <td>St Lawrence</td>
+              <td>Unique space</td>
+              <td>150</td>
+              <td>—</td>
+              <td>100</td>
+              <td>None — 10 minutes from St Helier hotels</td>
+            </tr>
+            <tr data-filterable data-name="Royal Jersey Showground Trinity Outdoor & blank canvas" data-type="Outdoor & blank canvas" data-parish="Trinity" data-max="1500" data-features="outdoor parking marquee exhibition seasonal step-free">
+              <td><strong><a href="venue-showground.html">Royal Jersey Showground</a></strong></td>
+              <td>Trinity</td>
+              <td>Outdoor & blank canvas</td>
+              <td>1,500</td>
+              <td>—</td>
+              <td>900</td>
+              <td>None — 20 minutes from St Helier hotels</td>
+            </tr>
+            <tr data-filterable data-name="Samarès Manor St Clement Manor & gardens" data-type="Manor & gardens" data-parish="St Clement" data-max="180" data-features="outdoor parking heritage-site seasonal marquee">
+              <td><strong><a href="venue-samares-manor.html">Samarès Manor</a></strong></td>
+              <td>St Clement</td>
+              <td>Manor & gardens</td>
+              <td>—</td>
+              <td>140</td>
+              <td>120</td>
+              <td>None — 5 minutes from St Helier hotels</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="filter-empty">No venues match those filters. Clear one or two and try again.</p>
     </div>
   </section>
 
   <section class="section section--sand">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Choosing</span>
-        <h2>Quick guidance</h2>
-      </div>
-      <div class="grid grid--2">
-        <div class="quote reveal">
-          <blockquote>Over 300 guests</blockquote>
-          <p class="form-note">Radisson Blu for a ballroom, Jersey Opera House for a ceremony with a stage, Royal Jersey Showground when you need to build it yourself.</p>
-        </div>
-        <div class="quote reveal">
-          <blockquote>A night they'll remember</blockquote>
-          <p class="form-note">Elizabeth Castle by ferry, Mont Orgueil's Great Hall, or the War Tunnels — all three are unavailable anywhere else in the British Isles.</p>
-        </div>
-        <div class="quote reveal">
-          <blockquote>Residential conference</blockquote>
-          <p class="form-note">The Royal Yacht or Radisson Blu keep delegates in one building; both sit inside the St Helier walking cluster for overflow bedrooms.</p>
-        </div>
-        <div class="quote reveal">
-          <blockquote>Leadership offsite</blockquote>
-          <p class="form-note">L'Horizon for sea air and a boardroom, Grand Jersey for discretion, Samarès Manor for a summer day session outdoors.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="cta-band reveal">
+      <div class="cta-band">
         <div>
           <h2>Want a shortlist against your numbers?</h2>
-          <p>Tell us guest count, dates and format. We'll come back with three venues that actually fit, with availability already checked.</p>
+          <p>Tell us guest count, dates and format. We'll come back with three venues that fit, with availability already checked.</p>
         </div>
         <a class="btn btn--primary" href="contact.html">Request a shortlist</a>
       </div>
@@ -259,7 +428,7 @@
       <div>
         <a class="brand" href="index.html">
           <span class="brand__mark">OE</span>
-          <span>Ormer Events<span class="brand__sub">Corporate · Jersey</span></span>
+          <span>Ormer Events<span class="brand__sub">Corporate &middot; Jersey</span></span>
         </a>
         <p>Corporate event planning and on-island delivery across Jersey, Channel Islands.</p>
       </div>
@@ -274,12 +443,13 @@
         </ul>
       </div>
       <div>
-        <h4>Formats</h4>
+        <h4>Venues</h4>
         <ul>
-          <li>Conferences</li>
-          <li>Awards &amp; galas</li>
-          <li>Incentive trips</li>
-          <li>Client hospitality</li>
+          <li><a href="venue-royal-yacht.html">The Royal Yacht</a></li>
+          <li><a href="venue-radisson-blu.html">Radisson Blu Waterfront Hotel</a></li>
+          <li><a href="venue-lhorizon.html">L'Horizon Beach Hotel & Spa</a></li>
+          <li><a href="venue-grand-jersey.html">Grand Jersey Hotel & Spa</a></li>
+          <li><a href="venue-opera-house.html">Jersey Opera House</a></li>
         </ul>
       </div>
       <div>
@@ -292,7 +462,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© <span id="year">2026</span> Ormer Events. Demonstration brochure site.</span>
+      <span>&copy; <span id="year">2026</span> Ormer Events. Demonstration brochure site.</span>
       <span>Venue names are real Jersey locations; capacities and prices are indicative.</span>
     </div>
   </div>
